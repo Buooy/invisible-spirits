@@ -19,11 +19,11 @@ const App = ({ Component, pageProps }: AppPropsWithLayout) => {
 	const getLayout = Component.getLayout ?? (page => page)
 
 	return (
-		<ChakraProvider>
-			<ThemeProvider attribute="class">
-				<Web3Provider>{getLayout(<Component {...pageProps} />)}</Web3Provider>
-			</ThemeProvider>
-		</ChakraProvider>
+		<ThemeProvider attribute="class">
+			<Web3Provider>
+				<ChakraProvider>{getLayout(<Component {...pageProps} />)}</ChakraProvider>
+			</Web3Provider>
+		</ThemeProvider>
 	)
 }
 
