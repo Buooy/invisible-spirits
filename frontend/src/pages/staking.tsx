@@ -2,9 +2,9 @@ import { FC, useEffect, useState } from 'react'
 import ThemeSwitcher from '@/components/ThemeSwitcher'
 import LayoutPrimary from '@/layouts/primary'
 import { useAccount } from 'wagmi'
-import NFTsGallery from '@/components/nfts/gallery'
+import NFTsStaking from '@/components/nfts/staking'
 
-const Gallery: FC = () => {
+const Staking: FC = () => {
 	const contractAddress = process.env.NEXT_PUBLIC_CONTRACT_ADDRESS
 	const [userAddress, setUserAddress] = useState<string | undefined>()
 	const { address } = useAccount()
@@ -17,7 +17,7 @@ const Gallery: FC = () => {
 		<LayoutPrimary>
 			<ThemeSwitcher className="absolute bottom-6 right-6" />
 			{userAddress ? (
-				<NFTsGallery address={userAddress} contractAddresses={[contractAddress]} />
+				<NFTsStaking address={userAddress} contractAddresses={[contractAddress]} />
 			) : (
 				<div>Please connect your wallet</div>
 			)}
@@ -25,4 +25,4 @@ const Gallery: FC = () => {
 	)
 }
 
-export default Gallery
+export default Staking
