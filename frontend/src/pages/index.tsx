@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from 'react'
+import { FC, useState } from 'react'
 import { useAccount, useContract, useSigner } from 'wagmi'
 import { ConnectKitButton } from 'connectkit'
 import { APP_NAME } from '@/lib/consts'
@@ -7,8 +7,10 @@ import LayoutPrimary from '@/layouts/primary'
 import contractAbi from '@/assets/abis/BaseContract.json'
 import { ethers } from 'ethers'
 import { Button, Text, Spinner } from '@chakra-ui/react'
+import { useRouter } from 'next/router'
 
 const Mint: FC = () => {
+	const router = useRouter()
 	const [isMinting, setIsMinting] = useState(false)
 	const [isSuccess, setIsSuccess] = useState(false)
 	const { data: signer, isError, isLoading } = useSigner()
@@ -22,11 +24,17 @@ const Mint: FC = () => {
 
 	const mint = async () => {
 		setIsMinting(true)
-		let nftTxn = await contract.safeMint(1, { value: ethers.utils.parseEther('0.1') })
-		await nftTxn.wait()
-		console.log(nftTxn)
-		console.log(`NFT Minted! Check it out at: https://goerli.etherscan.io/tx/${nftTxn.hash}`)
-		setIsMinting(false)
+		try {
+			let nftTxn = await contract.safeMint(1, { value: ethers.utils.parseEther('0.1') })
+			await nftTxn.wait()
+			console.log(nftTxn)
+			console.log(`NFT Minted! Check it out at: https://goerli.etherscan.io/tx/${nftTxn.hash}`)
+			setIsSuccess(true)
+			router.push('/gallery')
+		} catch (error) {
+			console.error(error)
+			setIsMinting(false)
+		}
 	}
 
 	return (

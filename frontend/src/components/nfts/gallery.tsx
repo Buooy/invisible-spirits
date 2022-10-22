@@ -15,12 +15,8 @@ const Gallery = ({ address, contractAddresses }: { address: string; contractAddr
 		getNfts()
 	}, [])
 
-	useEffect(() => {
-		console.log(nfts)
-	}, [nfts])
-
 	return (
-		<Flex w="100vw">
+		<Flex w="100vw" bg="#f9f8f4" justifyContent="center">
 			{nfts &&
 				nfts.map((nft, index) => (
 					<Flex
@@ -30,7 +26,6 @@ const Gallery = ({ address, contractAddresses }: { address: string; contractAddr
 							backgroundImage: `url("${frameSingle.src}")`,
 							backgroundSize: 'contain',
 							backgroundPosition: 'center',
-							backgroundColor: '#f9f8f4',
 							backgroundRepeat: 'no-repeat',
 							height: '100vh',
 						}}
@@ -40,7 +35,7 @@ const Gallery = ({ address, contractAddresses }: { address: string; contractAddr
 							style={{
 								width: '40%',
 								maxHeight: '300px',
-								marginLeft: '29%',
+								marginLeft: '30%',
 								marginTop: '50%',
 							}}
 						>
