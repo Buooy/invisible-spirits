@@ -1,25 +1,18 @@
 // scripts/deploy.js
-async function main () {
+async function main() {
   // We get the contract to deploy
-  const BaseBuooy = await ethers.getContractFactory('BaseBuooy');
+  const InvisibleSpirits = await ethers.getContractFactory("BaseContract");
 
-  console.log('Deploying BaseBuooy...');
-  const baseBuooy = await BaseBuooy.deploy();
+  console.log("Deploying InvisibleSpirits...");
+  const invisibleSpirits = await InvisibleSpirits.deploy();
 
-  /*
-  await hre.ethernal.push({
-    name: 'BaseBuooy',
-    address: baseBuooy.address
-  });
-  */
-
-  await baseBuooy.deployed();
-  console.log('BaseBuooy deployed to:', baseBuooy.address);
+  await invisibleSpirits.deployed();
+  console.log("InvisibleSpirits deployed to:", invisibleSpirits.address);
 }
 
 main()
   .then(() => process.exit(0))
-  .catch(error => {
+  .catch((error) => {
     console.error(error);
     process.exit(1);
   });

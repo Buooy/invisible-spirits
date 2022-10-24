@@ -35,7 +35,9 @@ abstract contract ERC721AStakeable is ERC721A, Ownable, IERC721AStakeable {
     _;
   }
 
-  /// Toggles the staking functionality
+  /**
+   * Staking
+   */
   function toggleStaking(bool nextStakingEnabledState) public onlyOwner returns (bool) {
     isStakingEnabled = nextStakingEnabledState;
     if (isStakingEnabled) {

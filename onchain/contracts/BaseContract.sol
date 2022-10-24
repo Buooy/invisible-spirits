@@ -20,9 +20,9 @@ contract BaseContract is ERC721A, Ownable, ERC721AStakeable, ERC721ABurnable, ER
     /**
      * Key Variables
      */
-    uint256 public mintPrice = 0.01 ether;
-    uint256 public mintQuantityLimit = 2;
-    uint256 public mintLimitPerWallet = 2;
+    uint256 public mintPrice = 0.1 ether;
+    uint256 public mintQuantityLimit = 5;
+    uint256 public mintLimitPerWallet = 5;
     uint256 public maxSupply = 888;
 
     string private _baseTokenURI = Constants.BASE_TOKEN_URI;
