@@ -5,7 +5,7 @@ import { ReactNode } from 'react'
 
 export default function LayoutPrimary({ children }: { children: ReactNode }) {
 	return (
-		<div className="relative flex items-top justify-center min-h-screen bg-white dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
+		<div className="relative flex items-top justify-center min-h-screen bg-white dark:bg-gray-900 sm:items-center sm:pt-0">
 			<div className="absolute top-6 right-6">
 				<ConnectWallet />
 			</div>

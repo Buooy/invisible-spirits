@@ -6,6 +6,8 @@ import { AppProps } from 'next/app'
 import { ReactElement, ReactNode } from 'react'
 import { ChakraProvider } from '@chakra-ui/react'
 
+import '../styles.css'
+
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
 	getLayout?: (page: ReactElement) => ReactNode
 }
